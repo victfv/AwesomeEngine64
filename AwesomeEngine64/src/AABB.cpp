@@ -15,3 +15,12 @@ AABB::AABB(double max, double min)
 AABB::~AABB()
 {
 }
+
+glm::dvec3 AABB::getMidpoint()
+{
+	using namespace glm;
+
+	dvec3 size = (boundsMax - boundsMin);
+
+	return boundsMin + (size / 2.0);
+}
