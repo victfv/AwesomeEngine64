@@ -1,2 +1,4 @@
-﻿  main.cpp
+﻿  MemoryPoolAllocator.cpp
+  main.cpp
+  Generating Code...
   AwesomeEngine64.vcxproj -> C:\Users\victf\Documents\GitHub\AwesomeEngine64\x64\Debug\AwesomeEngine64.exe
