@@ -2,13 +2,13 @@
 
 
 OctreeNode::OctreeNode(AABB aabb)
+	:aabb(aabb)
 {
-	this->aabb = aabb;
 }
 
 OctreeNode::OctreeNode(double max, double min)
+	:aabb(max, min)
 {
-	this->aabb = AABB(max, min);
 }
 
 OctreeNode::~OctreeNode()
