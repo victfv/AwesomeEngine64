@@ -141,17 +141,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="include\Mesh3D.cpp" />
+    <ClCompile Include="src\AABB.cpp" />
+    <ClCompile Include="src\OctreeNode.cpp" />
     <ClCompile Include="src\MemoryPoolAllocator.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Mesh3D.h" />
+    <ClInclude Include="include\AABB.h" />
     <ClInclude Include="include\tiny_obj_loader.h" />
     <ClInclude Include="include\Window.h" />
     <ClInclude Include="include\MemoryPoolAllocator.h" />
-    <ClInclude Include="src\main.h" />
+    <ClInclude Include="include\OctreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,7 +11,13 @@ public:
 	~MemoryPoolAllocator();
 
 	void* allocate();
-	void deallocate(void* ptr);
+	bool deallocate(void* ptr);
+
+	template <typename T, typename... Args>
+	T* create(Args&&... args);
+
+	template <typename T>
+	bool destroy(T* obj);
 
 private:
 	void* pool_memory_;
