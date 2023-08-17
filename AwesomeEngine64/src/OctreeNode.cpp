@@ -13,7 +13,45 @@ OctreeNode::OctreeNode(double max, double min)
 
 OctreeNode::~OctreeNode()
 {
+	for (OctreeNode* ch : children)
+	{
+		ch->~OctreeNode();
+	}
+}
 
+AABB OctreeNode::subdivSpace(int index)
+{
+	using namespace glm;
+	dvec3 max = aabb.getBoundsMax();
+	dvec3 min = aabb.getBoundsMin();
+	dvec3 mid = aabb.getMidpoint();
+	switch (index)
+	{
+	case 0:
+		return AABB(mid, max);
+		break;
+	case 1:
+		return AABB(dvec3(mid.x, mid.y, min.z),dvec3(max.x, max.y, mid.z));
+		break;
+	case 2:
+		return AABB(dvec3(min.x, mid.y, min.z), dvec3(mid.x, max.y, mid.z));
+		break;
+	case 3:
+		return AABB(dvec3(min.x, mid.z, mid.y), dvec3(mid.x, max.y, max.z));
+		break;
+	case 4:
+		return AABB(dvec3(mid.x, min.y, mid.z), dvec3(max.x, mid.y, max.z));
+		break;
+	case 5:
+		return AABB(dvec3(mid.x, min.y, min.z), dvec3(max.x, mid.y, mid.z));
+		break;
+	case 6:
+		return AABB(min, mid);
+		break;
+	case 7:
+		return AABB(dvec3(min.x, min.y, mid.z), dvec3(mid.x, mid.y, max.z));
+		break;
+	}
 }
 
 void OctreeNode::createChild(glm::dvec3 pos, int level = 0)
@@ -33,7 +71,7 @@ void OctreeNode::createChild(glm::dvec3 pos, int level = 0)
 	{
 		if (!children[index])
 		{
-			//get subdive space and create node
+			children[index] = new OctreeNode(subdivSpace(index));
 		}
 	}
 

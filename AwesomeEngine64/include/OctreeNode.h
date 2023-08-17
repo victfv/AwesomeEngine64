@@ -29,6 +29,7 @@ private:
 	* -x +y -z
 	* +x -y +z
 	*/
+	AABB subdivSpace(int index);
 	OctreeNode* children[8];
 	AABB aabb;
 	int getOctantIndex(glm::dvec3 pos);
